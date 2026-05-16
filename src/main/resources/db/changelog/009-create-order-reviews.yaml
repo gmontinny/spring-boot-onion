@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: 009-create-order-reviews
+      author: onion
+      changes:
+        - createTable:
+            tableName: order_reviews
+            columns:
+              - column:
+                  name: review_id
+                  type: varchar(32)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: order_id
+                  type: varchar(32)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: review_score
+                  type: int
+              - column:
+                  name: review_comment_title
+                  type: varchar(255)
+              - column:
+                  name: review_comment_message
+                  type: text
+              - column:
+                  name: review_creation_date
+                  type: timestamp
+              - column:
+                  name: review_answer_timestamp
+                  type: timestamp
+        - addForeignKeyConstraint:
+            baseTableName: order_reviews
+            baseColumnNames: order_id
+            referencedTableName: orders
+            referencedColumnNames: order_id
+            constraintName: fk_order_reviews_order

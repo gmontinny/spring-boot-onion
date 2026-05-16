@@ -1,0 +1,6 @@
+location     = "East US"
+cluster_name = "onion-aks"
+app_image    = "<acr_name>.azurecr.io/onion-app:latest"
+db_username  = "<db_username>"
+db_password  = "<db_password>"
+jwt_secret   = "<jwt_secret>"

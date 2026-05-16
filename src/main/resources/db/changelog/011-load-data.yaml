@@ -1,0 +1,218 @@
+databaseChangeLog:
+  - changeSet:
+      id: 011-load-customers-data
+      author: onion
+      changes:
+        - loadData:
+            tableName: customers
+            file: db/data/olist_customers_dataset.csv
+            separator: ","
+            quotchar: "\""
+            columns:
+              - column:
+                  name: customer_id
+                  header: customer_id
+              - column:
+                  name: customer_unique_id
+                  header: customer_unique_id
+              - column:
+                  name: customer_zip_code_prefix
+                  header: customer_zip_code_prefix
+              - column:
+                  name: customer_city
+                  header: customer_city
+              - column:
+                  name: customer_state
+                  header: customer_state
+
+  - changeSet:
+      id: 012-load-sellers-data
+      author: onion
+      changes:
+        - loadData:
+            tableName: sellers
+            file: db/data/olist_sellers_dataset.csv
+            separator: ","
+            quotchar: "\""
+            columns:
+              - column:
+                  name: seller_id
+                  header: seller_id
+              - column:
+                  name: seller_zip_code_prefix
+                  header: seller_zip_code_prefix
+              - column:
+                  name: seller_city
+                  header: seller_city
+              - column:
+                  name: seller_state
+                  header: seller_state
+
+  - changeSet:
+      id: 013-load-products-data
+      author: onion
+      changes:
+        - loadData:
+            tableName: products
+            file: db/data/olist_products_dataset.csv
+            separator: ","
+            quotchar: "\""
+            columns:
+              - column:
+                  name: product_id
+                  header: product_id
+              - column:
+                  name: product_category_name
+                  header: product_category_name
+              - column:
+                  name: product_name_length
+                  header: product_name_lenght
+                  type: NUMERIC
+              - column:
+                  name: product_description_length
+                  header: product_description_lenght
+                  type: NUMERIC
+              - column:
+                  name: product_photos_qty
+                  header: product_photos_qty
+                  type: NUMERIC
+              - column:
+                  name: product_weight_g
+                  header: product_weight_g
+                  type: NUMERIC
+              - column:
+                  name: product_length_cm
+                  header: product_length_cm
+                  type: NUMERIC
+              - column:
+                  name: product_height_cm
+                  header: product_height_cm
+                  type: NUMERIC
+              - column:
+                  name: product_width_cm
+                  header: product_width_cm
+                  type: NUMERIC
+
+  - changeSet:
+      id: 014-load-categories-data
+      author: onion
+      changes:
+        - loadData:
+            tableName: product_category_translation
+            file: db/data/product_category_name_translation.csv
+            separator: ","
+            quotchar: "\""
+            columns:
+              - column:
+                  name: product_category_name
+                  header: product_category_name
+              - column:
+                  name: product_category_name_english
+                  header: product_category_name_english
+
+  - changeSet:
+      id: 015-load-orders-data
+      author: onion
+      changes:
+        - loadData:
+            tableName: orders
+            file: db/data/olist_orders_dataset.csv
+            separator: ","
+            quotchar: "\""
+            columns:
+              - column:
+                  name: order_id
+                  header: order_id
+              - column:
+                  name: customer_id
+                  header: customer_id
+              - column:
+                  name: order_status
+                  header: order_status
+              - column:
+                  name: order_purchase_timestamp
+                  header: order_purchase_timestamp
+                  type: DATETIME
+              - column:
+                  name: order_approved_at
+                  header: order_approved_at
+                  type: DATETIME
+              - column:
+                  name: order_delivered_carrier_date
+                  header: order_delivered_carrier_date
+                  type: DATETIME
+              - column:
+                  name: order_delivered_customer_date
+                  header: order_delivered_customer_date
+                  type: DATETIME
+              - column:
+                  name: order_estimated_delivery_date
+                  header: order_estimated_delivery_date
+                  type: DATETIME
+
+  - changeSet:
+      id: 016-load-order-items-data
+      author: onion
+      changes:
+        - loadData:
+            tableName: order_items
+            file: db/data/olist_order_items_dataset.csv
+            separator: ","
+            quotchar: "\""
+            columns:
+              - column:
+                  name: order_id
+                  header: order_id
+              - column:
+                  name: order_item_id
+                  header: order_item_id
+                  type: NUMERIC
+              - column:
+                  name: product_id
+                  header: product_id
+              - column:
+                  name: seller_id
+                  header: seller_id
+              - column:
+                  name: shipping_limit_date
+                  header: shipping_limit_date
+                  type: DATETIME
+              - column:
+                  name: price
+                  header: price
+                  type: NUMERIC
+              - column:
+                  name: freight_value
+                  header: freight_value
+                  type: NUMERIC
+
+  - changeSet:
+      id: 017-load-order-payments-data
+      author: onion
+      changes:
+        - loadData:
+            tableName: order_payments
+            file: db/data/olist_order_payments_dataset.csv
+            separator: ","
+            quotchar: "\""
+            columns:
+              - column:
+                  name: order_id
+                  header: order_id
+              - column:
+                  name: payment_sequential
+                  header: payment_sequential
+                  type: NUMERIC
+              - column:
+                  name: payment_type
+                  header: payment_type
+              - column:
+                  name: payment_installments
+                  header: payment_installments
+                  type: NUMERIC
+              - column:
+                  name: payment_value
+                  header: payment_value
+                  type: NUMERIC
+
+

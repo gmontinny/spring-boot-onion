@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: onion-config
+  namespace: onion
+data:
+  DB_URL: "jdbc:postgresql://postgres-service:5432/onion_db"
+  VAULT_URI: "http://vault-service:8200"
+  VAULT_ENABLED: "false"
+  SPRING_JPA_HIBERNATE_DDL_AUTO: "validate"
+  SPRING_LIQUIBASE_ENABLED: "true"

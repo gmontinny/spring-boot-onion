@@ -1,0 +1,49 @@
+databaseChangeLog:
+  - changeSet:
+      id: 006-create-orders
+      author: onion
+      changes:
+        - createTable:
+            tableName: orders
+            columns:
+              - column:
+                  name: order_id
+                  type: varchar(32)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: customer_id
+                  type: varchar(32)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: order_status
+                  type: varchar(20)
+              - column:
+                  name: order_purchase_timestamp
+                  type: timestamp
+              - column:
+                  name: order_approved_at
+                  type: timestamp
+              - column:
+                  name: order_delivered_carrier_date
+                  type: timestamp
+              - column:
+                  name: order_delivered_customer_date
+                  type: timestamp
+              - column:
+                  name: order_estimated_delivery_date
+                  type: timestamp
+        - addForeignKeyConstraint:
+            baseTableName: orders
+            baseColumnNames: customer_id
+            referencedTableName: customers
+            referencedColumnNames: customer_id
+            constraintName: fk_orders_customer
+        - createIndex:
+            indexName: idx_orders_customer_id
+            tableName: orders
+            columns:
+              - column:
+                  name: customer_id

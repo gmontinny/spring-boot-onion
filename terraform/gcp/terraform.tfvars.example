@@ -1,0 +1,7 @@
+project_id   = "<gcp_project_id>"
+region       = "us-central1"
+cluster_name = "onion-gke"
+app_image    = "gcr.io/<gcp_project_id>/onion-app:latest"
+db_username  = "<db_username>"
+db_password  = "<db_password>"
+jwt_secret   = "<jwt_secret>"

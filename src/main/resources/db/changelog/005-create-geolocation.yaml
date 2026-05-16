@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: 005-create-geolocation
+      author: onion
+      changes:
+        - createTable:
+            tableName: geolocation
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: geolocation_zip_code_prefix
+                  type: varchar(5)
+              - column:
+                  name: geolocation_lat
+                  type: decimal(20,16)
+              - column:
+                  name: geolocation_lng
+                  type: decimal(20,16)
+              - column:
+                  name: geolocation_city
+                  type: varchar(100)
+              - column:
+                  name: geolocation_state
+                  type: varchar(2)
+        - createIndex:
+            indexName: idx_geolocation_zip
+            tableName: geolocation
+            columns:
+              - column:
+                  name: geolocation_zip_code_prefix

@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002-create-sellers
+      author: onion
+      changes:
+        - createTable:
+            tableName: sellers
+            columns:
+              - column:
+                  name: seller_id
+                  type: varchar(32)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: seller_zip_code_prefix
+                  type: varchar(5)
+              - column:
+                  name: seller_city
+                  type: varchar(100)
+              - column:
+                  name: seller_state
+                  type: varchar(2)

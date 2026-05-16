@@ -1,0 +1,34 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-customers
+      author: onion
+      changes:
+        - createTable:
+            tableName: customers
+            columns:
+              - column:
+                  name: customer_id
+                  type: varchar(32)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: customer_unique_id
+                  type: varchar(32)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: customer_zip_code_prefix
+                  type: varchar(5)
+              - column:
+                  name: customer_city
+                  type: varchar(100)
+              - column:
+                  name: customer_state
+                  type: varchar(2)
+        - createIndex:
+            indexName: idx_customer_unique_id
+            tableName: customers
+            columns:
+              - column:
+                  name: customer_unique_id

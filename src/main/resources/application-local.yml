@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/onion_db
+    username: gmontinny
+    password: Gmontinny2026
+  cloud:
+    vault:
+      enabled: false
+
+jwt:
+  secret: OnionArchitectureSecretKeyForJWTTokenMustBeAtLeast256BitsLong

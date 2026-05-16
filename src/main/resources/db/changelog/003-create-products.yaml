@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003-create-products
+      author: onion
+      changes:
+        - createTable:
+            tableName: products
+            columns:
+              - column:
+                  name: product_id
+                  type: varchar(32)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: product_category_name
+                  type: varchar(100)
+              - column:
+                  name: product_name_length
+                  type: int
+              - column:
+                  name: product_description_length
+                  type: int
+              - column:
+                  name: product_photos_qty
+                  type: int
+              - column:
+                  name: product_weight_g
+                  type: int
+              - column:
+                  name: product_length_cm
+                  type: int
+              - column:
+                  name: product_height_cm
+                  type: int
+              - column:
+                  name: product_width_cm
+                  type: int

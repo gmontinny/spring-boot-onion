@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: 004-create-product-category-translation
+      author: onion
+      changes:
+        - createTable:
+            tableName: product_category_translation
+            columns:
+              - column:
+                  name: product_category_name
+                  type: varchar(100)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: product_category_name_english
+                  type: varchar(100)

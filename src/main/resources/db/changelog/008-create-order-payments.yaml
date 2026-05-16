@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: 008-create-order-payments
+      author: onion
+      changes:
+        - createTable:
+            tableName: order_payments
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: order_id
+                  type: varchar(32)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: payment_sequential
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: payment_type
+                  type: varchar(20)
+              - column:
+                  name: payment_installments
+                  type: int
+              - column:
+                  name: payment_value
+                  type: decimal(10,2)
+        - addForeignKeyConstraint:
+            baseTableName: order_payments
+            baseColumnNames: order_id
+            referencedTableName: orders
+            referencedColumnNames: order_id
+            constraintName: fk_order_payments_order

@@ -1,0 +1,6 @@
+region       = "us-east-1"
+cluster_name = "onion-eks"
+app_image    = "<account_id>.dkr.ecr.us-east-1.amazonaws.com/onion-app:latest"
+db_username  = "<db_username>"
+db_password  = "<db_password>"
+jwt_secret   = "<jwt_secret>"

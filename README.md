@@ -747,3 +747,16 @@ curl -X POST http://localhost:8080/api/categories \
 ## Licença
 
 Este projeto é para fins educacionais.
+
+---
+
+## Artigo Técnico
+
+Para uma análise aprofundada das decisões arquiteturais, padrões de projeto e estratégias de segurança utilizadas neste projeto, consulte o [Artigo Técnico](ARTIGO_TECNICO.md).
+
+O artigo aborda:
+- Fundamentação teórica da Arquitetura Onion (Jeffrey Palermo)
+- Inversão de dependência aplicada nos repositórios
+- Estratégia de segurança progressiva (JWT + Rate Limiting + Vault)
+- Modelo de maturidade REST (Nível 3 - HATEOAS)
+- Infraestrutura Cloud Native (Docker → Kubernetes → Terraform)
